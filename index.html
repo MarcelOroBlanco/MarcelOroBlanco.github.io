@@ -350,24 +350,38 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 680px) {
-    main { padding: 70px 24px 60px; }
-    .hero { margin-bottom: 70px; }
-    .mobile-break { display: inline; }
-    .featured, .about { margin-bottom: 90px; }
-    .release-card {
-      grid-template-columns: 1fr;
-      gap: 36px;
-    }
-    .release-art-col {
-      max-width: 340px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .release-info { text-align: center; }
-    .streaming-links { text-align: left; }
-    .credits { text-align: center; }
-    .socials { gap: 24px; flex-wrap: wrap; }
+  main { padding: 70px 24px 60px; }
+  .hero { margin-bottom: 70px; }
+  .mobile-break { display: inline; }
+  .featured, .about { margin-bottom: 90px; }
+  .release-card {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
   }
+  .release-art-col {
+    display: contents;
+  }
+  .release-art {
+    order: 1;
+    max-width: 340px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .release-info {
+    order: 2;
+    text-align: center;
+  }
+  .credits {
+    order: 3;
+    max-width: 340px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+  .streaming-links { text-align: left; }
+  .socials { gap: 24px; flex-wrap: wrap; }
+}
 </style>
 </head>
 <body>
