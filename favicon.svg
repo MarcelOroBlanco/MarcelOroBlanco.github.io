@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Citrus body (main circle, filled) -->
+  <circle cx="32" cy="38" r="22" fill="#eceef2"/>
+  <!-- Leaf - elongated oval shape at angle, emerging from top -->
+  <ellipse cx="38" cy="12" rx="9" ry="4" fill="#eceef2" transform="rotate(-35 38 12)"/>
+  <!-- Stem connecting leaf to fruit -->
+  <path d="M33 17 Q34 15 36 13" stroke="#eceef2" stroke-width="2" stroke-linecap="round" fill="none"/>
+</svg>
