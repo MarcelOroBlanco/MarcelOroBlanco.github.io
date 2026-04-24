@@ -7,9 +7,9 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-5PZH40NK7P');
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcel Oro Blanco</title>
@@ -17,375 +17,20 @@
 <meta property="og:title" content="Marcel Oro Blanco">
 <meta property="og:description" content="Self-produced artist. New single 'Bootlickers' out now.">
 <meta property="og:type" content="music.musician">
+
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #0a0b0d;
-    --bg-elevated: #131418;
-    --bg-hover: #191b20;
-    --fg: #eceef2;
-    --fg-dim: #a0a4ad;
-    --fg-faint: #6b6f78;
-    --border: #24262c;
-    --border-hover: #3a3d45;
-    --serif: 'Fraunces', 'Times New Roman', serif;
-    --sans: 'Inter', -apple-system, sans-serif;
 
-    /* Muted brand colors */
-    --c-spotify: #5A8F5F;
-    --c-apple: #D47B89;
-    --c-youtube: #C94940;
-    --c-amazon: #4A9CA8;
-    --c-tidal: #C8CAD0;
-    --c-deezer: #9B8BBF;
-    --c-pandora: #3D6FAC;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: var(--sans);
-    font-weight: 400;
-    line-height: 1.6;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 10%, rgba(60, 80, 110, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 90%, rgba(40, 50, 70, 0.06) 0%, transparent 50%),
-      linear-gradient(180deg, #0a0b0d 0%, #0d0e11 50%, #08090b 100%);
-    pointer-events: none;
-    z-index: -2;
-  }
-
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: -1;
-    mix-blend-mode: overlay;
-  }
-
-  main {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 120px 32px 80px;
-  }
-
-  /* ===== HERO ===== */
-  .hero {
-    text-align: center;
-    margin-bottom: 100px;
-    animation: fadeUp 1.2s ease-out;
-  }
-
-  .hero h1 {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: clamp(3.25rem, 9vw, 5.75rem);
-    letter-spacing: -0.035em;
-    line-height: 0.95;
-    color: var(--fg);
-  }
-
-  .mobile-break { display: none; }
-
-  /* ===== FEATURED RELEASE ===== */
-  .featured {
-    margin-bottom: 140px;
-    animation: fadeUp 1.2s ease-out 0.2s both;
-  }
-
-  .section-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.4em;
-    color: var(--fg-dim);
-    margin-bottom: 40px;
-    text-align: center;
-    font-weight: 500;
-  }
-
-  .release-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: start;
-  }
-
-  .release-art-col {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .release-art {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--bg-elevated);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .release-art:hover { transform: scale(1.02); }
-
-  .release-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: saturate(0.95) contrast(1.05);
-  }
-
-  .credits {
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
-
-  .credits p {
-    font-size: 0.78rem;
-    line-height: 1.7;
-    color: var(--fg-dim);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-  }
-
-  .credits p + p {
-    margin-top: 4px;
-    color: var(--fg-faint);
-  }
-
-  .credits .lyrics-link {
-    display: inline-block;
-    margin-top: 14px;
-    color: var(--fg-dim);
-    text-decoration: none;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    font-weight: 500;
-    transition: color 0.2s ease;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 2px;
-  }
-
-  .credits .lyrics-link:hover {
-    color: var(--fg);
-    border-bottom-color: var(--border-hover);
-  }
-
-  .release-info .release-type {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.35em;
-    color: var(--fg-dim);
-    margin-bottom: 16px;
-    font-weight: 500;
-  }
-
-  .release-info h2 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    letter-spacing: -0.025em;
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-
-  .release-info .artist {
-    font-size: 0.95rem;
-    color: var(--fg-dim);
-    margin-bottom: 32px;
-    font-weight: 400;
-  }
-
-  .streaming-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .stream-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 20px;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--fg);
-    text-decoration: none;
-    font-family: var(--sans);
-    font-size: 0.88rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    transition: background 0.2s ease, border-color 0.2s ease;
-  }
-
-  .stream-btn:hover {
-    border-color: var(--border-hover);
-    background: var(--bg-hover);
-  }
-
-  .stream-btn .platform {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .stream-btn .icon {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .stream-btn .icon svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-    display: block;
-  }
-
-  .icon-spotify  { color: var(--c-spotify); }
-  .icon-apple    { color: var(--c-apple); }
-  .icon-youtube  { color: var(--c-youtube); }
-  .icon-amazon   { color: var(--c-amazon); }
-  .icon-tidal    { color: var(--c-tidal); }
-  .icon-deezer   { color: var(--c-deezer); }
-  .icon-pandora  { color: var(--c-pandora); }
-
-  .stream-btn .action {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: var(--fg-faint);
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .stream-btn:hover .action { color: var(--fg); }
-  .stream-btn.soon .action { color: var(--fg-dim); }
-
-  /* ===== ABOUT ===== */
-  .about {
-    margin-bottom: 140px;
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  .about p {
-    font-family: var(--sans);
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.75;
-    color: var(--fg);
-    letter-spacing: 0.005em;
-  }
-
-.about p + p {
-  margin-top: 16px;
-  color: var(--fg-dim);
-}
-
-  /* ===== SOCIAL ===== */
-  .socials {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border);
-  }
-
-  .social-link {
-    color: var(--fg-dim);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-  }
-
-  .social-link svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-  }
-
-  .social-link:hover { color: var(--fg); }
-
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 680px) {
-  main { padding: 70px 24px 60px; }
-  .hero { margin-bottom: 70px; }
-  .mobile-break { display: inline; }
-  .featured, .about { margin-bottom: 90px; }
-  .release-card {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-  }
-  .release-art-col {
-    display: contents;
-  }
-  .release-art {
-    order: 1;
-    max-width: 340px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  .release-info {
-  order: 2;
-  width: 100%;
-  text-align: center;
-  }
-  .credits {
-    order: 3;
-    max-width: 340px;
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-  }
-  .streaming-links { text-align: left; }
-  .socials { gap: 24px; flex-wrap: wrap; }
-}
-</style>
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
 <main>
-
   <section class="hero">
     <h1>Marcel<span class="mobile-break"><br></span> Oro Blanco</h1>
   </section>
@@ -393,15 +38,14 @@
   <section class="featured">
     <div class="section-label">Featured Release</div>
     <div class="release-card">
-
       <div class="release-art-col">
         <div class="release-art">
           <img src="Bootlickers.png" alt="Bootlickers cover art">
         </div>
         <div class="credits">
           <p>Written, produced, mixed, mastered, and performed by Marcel Oro Blanco.</p>
-          <p>© 2026 Oro Blanco Records.</p>
-          <p>℗ 2026 Oro Blanco Records.</p>
+          <p class="copyright">© 2026 Oro Blanco Records.</p>
+          <p class="copyright">℗ 2026 Oro Blanco Records.</p>
         </div>
       </div>
 
@@ -409,8 +53,8 @@
         <div class="release-type">New Single · Out Now</div>
         <h2>Bootlickers</h2>
         <div class="artist">Marcel Oro Blanco</div>
-        <div class="streaming-links">
 
+        <div class="streaming-links">
           <a href="https://open.spotify.com/track/3jovN1yXz5eZsktegcpeYs" class="stream-btn" target="_blank" rel="noopener">
             <span class="platform">
               <span class="icon icon-spotify"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></span>
@@ -466,7 +110,6 @@
             </span>
             <span class="action">Play</span>
           </a>
-
         </div>
       </div>
     </div>
@@ -490,7 +133,6 @@
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
   </nav>
-
 </main>
 
 </body>
