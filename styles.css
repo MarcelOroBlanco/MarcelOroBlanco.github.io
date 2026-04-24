@@ -1,0 +1,415 @@
+:root {
+  --bg: #0a0b0d;
+  --bg-elevated: #131418;
+  --bg-hover: #191b20;
+  --fg: #eceef2;
+  --fg-dim: #a0a4ad;
+  --fg-faint: #6b6f78;
+  --border: #24262c;
+  --border-hover: #3a3d45;
+  --serif: 'Fraunces', 'Times New Roman', serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+
+  /* Muted brand colors */
+  --c-spotify: #5A8F5F;
+  --c-apple: #D47B89;
+  --c-youtube: #C94940;
+  --c-amazon: #4A9CA8;
+  --c-tidal: #C8CAD0;
+  --c-deezer: #9B8BBF;
+  --c-pandora: #3D6FAC;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(60, 80, 110, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(40, 50, 70, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0b0d 0%, #0d0e11 50%, #08090b 100%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: overlay;
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 120px 32px 80px;
+}
+
+/* ===== SECTION LABELS ===== */
+.section-label {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--fg);
+  margin-bottom: 44px;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 18px;
+}
+
+.section-label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 1px;
+  background: var(--border-hover);
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  margin-bottom: 100px;
+  animation: fadeUp 1.2s ease-out;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(3.25rem, 9vw, 5.75rem);
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  color: var(--fg);
+}
+
+.mobile-break { display: none; }
+
+/* ===== TOP NAV (subpages) ===== */
+.top-nav {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 32px 0;
+}
+
+.back-link {
+  color: var(--fg-dim);
+  text-decoration: none;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  transition: color 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-link:hover { color: var(--fg); }
+.back-link .arrow { transition: transform 0.25s ease; }
+.back-link:hover .arrow { transform: translateX(-3px); }
+
+/* ===== FEATURED / RELEASE CARD ===== */
+.featured { margin-bottom: 140px; animation: fadeUp 1.2s ease-out 0.2s both; }
+
+.release-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.release-card.standalone {
+  animation: fadeUp 1.2s ease-out;
+  gap: 64px;
+  margin-bottom: 120px;
+}
+
+.release-art-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.release-art {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.release-art:hover { transform: scale(1.02); }
+
+.release-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.95) contrast(1.05);
+}
+
+/* ===== CREDITS ===== */
+.credits {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.credits p {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--fg-dim);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.credits p + p {
+  margin-top: 4px;
+  color: var(--fg-faint);
+}
+
+/* Copyright lines: use sans so © and ℗ share identical metrics,
+   tighter leading to group them visually */
+.credits .copyright {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  letter-spacing: 0.015em;
+}
+
+.credits .copyright + .copyright {
+  margin-top: 1px;
+}
+
+/* ===== RELEASE INFO ===== */
+.release-info .release-type {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--fg-dim);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.release-info h2,
+.release-info h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.release-info h2 {
+  font-weight: 600;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: -0.025em;
+}
+
+.release-info h1 {
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+}
+
+.release-info .artist {
+  font-size: 0.95rem;
+  color: var(--fg-dim);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+/* ===== STREAMING LINKS ===== */
+.streaming-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stream-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.stream-btn:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-hover);
+}
+
+.stream-btn .platform {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stream-btn .icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stream-btn .icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  display: block;
+}
+
+.icon-spotify { color: var(--c-spotify); }
+.icon-apple   { color: var(--c-apple); }
+.icon-youtube { color: var(--c-youtube); }
+.icon-amazon  { color: var(--c-amazon); }
+.icon-tidal   { color: var(--c-tidal); }
+.icon-deezer  { color: var(--c-deezer); }
+.icon-pandora { color: var(--c-pandora); }
+
+.stream-btn .action {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--fg-faint);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.stream-btn:hover .action { color: var(--fg); }
+.stream-btn.soon .action { color: var(--fg-dim); }
+
+/* ===== ABOUT ===== */
+.about {
+  margin-bottom: 140px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.about p {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--fg);
+  letter-spacing: 0.005em;
+}
+
+.about p + p {
+  margin-top: 14px;
+  color: var(--fg-dim);
+}
+
+/* ===== SOCIAL ===== */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.social-link {
+  color: var(--fg-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.social-link svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.social-link:hover { color: var(--fg); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 680px) {
+  main { padding: 70px 24px 60px; }
+  .top-nav { padding: 28px 24px 0; }
+
+  .hero { margin-bottom: 70px; }
+  .mobile-break { display: inline; }
+
+  .featured,
+  .about { margin-bottom: 90px; }
+
+  .section-label { margin-bottom: 36px; }
+
+  .release-card {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .release-art-col { display: contents; }
+
+  .release-art {
+    order: 1;
+    max-width: 340px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .release-info {
+    order: 2;
+    width: 100%;
+    text-align: center;
+  }
+
+  .credits {
+    order: 3;
+    max-width: 340px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .streaming-links { text-align: left; }
+  .socials { gap: 24px; flex-wrap: wrap; }
+}
