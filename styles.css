@@ -177,7 +177,6 @@ main {
   padding-top: 24px;
   border-top: 1px solid var(--border);
 }
-
 .credits p {
   font-family: var(--sans);
   font-size: 0.78rem;
@@ -186,12 +185,10 @@ main {
   font-weight: 400;
   letter-spacing: 0.01em;
 }
-
 .credits p + p {
   margin-top: 4px;
   color: var(--fg-faint);
 }
-
 /* Copyright lines: tighter leading to group them visually */
 .credits .copyright {
   font-variant-numeric: tabular-nums;
@@ -199,16 +196,16 @@ main {
   line-height: 1.5;
   letter-spacing: 0.015em;
 }
-
 .credits .copyright + .copyright {
   margin-top: 1px;
 }
-
 /* © and ℗ are pulled from different fonts by most browsers (℗ often falls
    back to a symbol/emoji font), which makes them render at visibly different
    sizes and baselines. Force both glyphs to the same mono stack and normalize
-   size + alignment so the two lines sit identically. */
-.credits .copyright .symbol .symbol-small {
+   size + alignment so they sit identically. */
+.credits .copyright .symbol,
+.credits .copyright .symbol-small {
+  font-family: 'Menlo', 'SFMono-Regular', 'Consolas', 'DejaVu Sans Mono', monospace;
   font-size: 0.92em;
   display: inline-block;
   width: 1em;
@@ -216,9 +213,11 @@ main {
   vertical-align: baseline;
   margin-right: 0.15em;
 }
-
-.symbol .symbol-small {
-  font-family: 'SFMono-Regular', 'Menlo', 'Consolas', 'DejaVu Sans Mono', monospace;
+/* The ampersand between © and ℗: smaller, no fixed width, snug spacing */
+.credits .copyright .symbol-small {
+  font-size: 0.7em;
+  width: auto;
+  margin: 0 0.1em;
 }
 
 /* ===== RELEASE INFO ===== */
