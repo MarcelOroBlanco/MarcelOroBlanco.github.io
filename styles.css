@@ -206,18 +206,19 @@ main {
 .credits .copyright .symbol,
 .credits .copyright .symbol-small {
   font-family: 'Menlo', 'SFMono-Regular', 'Consolas', 'DejaVu Sans Mono', monospace;
-  font-size: 0.92em;
+  font-size: 1em;
   display: inline-block;
   width: 1em;
   text-align: center;
-  vertical-align: baseline;
-  margin-right: 0.15em;
+  vertical-align: -0.05em;
+  margin-right: 0.05em;
 }
-/* The ampersand between © and ℗: smaller, no fixed width, snug spacing */
+/* The ampersand between © and ℗: slightly smaller, no fixed width, snug spacing */
 .credits .copyright .symbol-small {
-  font-size: 0.7em;
+  font-size: 0.85em;
   width: auto;
-  margin: 0 0.1em;
+  margin: 0 0.05em;
+  vertical-align: 0;
 }
 
 /* ===== RELEASE INFO ===== */
