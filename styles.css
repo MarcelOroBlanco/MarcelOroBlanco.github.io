@@ -206,7 +206,7 @@ main {
 .credits .copyright .symbol,
 .credits .copyright .symbol-small {
   font-family: 'Menlo', 'SFMono-Regular', 'Consolas', 'DejaVu Sans Mono', monospace;
-  font-size: 1em;
+  font-size: 1.15em;
   display: inline-block;
   width: .85em;
   text-align: center;
