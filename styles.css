@@ -215,10 +215,14 @@ main {
 }
 /* The ampersand between © and ℗: slightly smaller, no fixed width, snug spacing */
 .credits .copyright .symbol-small {
-  font-size: 0.85em;
+  font-size: 1em;
   width: auto;
-  margin: 0 0.05em;
+  margin: 0 0.03em;
   vertical-align: 0;
+}
+
+.symbol {
+  font-size: 1.2em;
 }
 
 /* ===== RELEASE INFO ===== */
