@@ -208,16 +208,13 @@ main {
   font-family: 'Menlo', 'SFMono-Regular', 'Consolas', 'DejaVu Sans Mono', monospace;
   font-size: 1em;
   display: inline-block;
-  width: 1em;
+  width: .85em;
   text-align: center;
-  vertical-align: -0.05em;
-  margin-right: 0.05em;
 }
 /* The ampersand between © and ℗: slightly smaller, no fixed width, snug spacing */
 .credits .copyright .symbol-small {
-  font-size: 1em;
+  font-size: .92em;
   width: auto;
-  margin: 0 0.03em;
   vertical-align: 0;
 }
 
